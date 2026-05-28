@@ -11,7 +11,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="images/logo.png">
@@ -36,7 +36,7 @@
                 <li><a href="#mission" class="nav-link">Mission</a></li>
                 <li><a href="#carousel" class="nav-link">Gallery</a></li>
                 <li><a href="#founder" class="nav-link">Founder</a></li>
-                <li><a href="#cta" class="nav-link btn-nav-donate">Donate</a></li>
+                <li><a href="#donate" class="nav-link btn-nav-donate">Donate</a></li>
             </ul>
             <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
                 <span class="hamburger-line"></span>
@@ -46,31 +46,29 @@
         </div>
     </nav>
 
+
     <!-- ═══════════════════════════════════════════ -->
     <!-- HERO SECTION                                -->
     <!-- ═══════════════════════════════════════════ -->
     <section id="hero" class="hero-section">
-        <!-- Doodle accents -->
-        <div class="doodle doodle-star doodle-hero-1" aria-hidden="true">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                <path d="M16 2L18.5 12.5L28 10L20 16L28 22L18.5 19.5L16 30L13.5 19.5L4 22L12 16L4 10L13.5 12.5L16 2Z" stroke="var(--burgundy)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+        <!-- Floating girl doodle accents -->
+        <div class="doodle doodle-girl-float doodle-hero-float-1" aria-hidden="true">
+            <img src="images/doodle-girl.png" alt="" loading="lazy">
         </div>
-        <div class="doodle doodle-star doodle-hero-2" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 32 32" fill="none">
-                <path d="M16 2L18.5 12.5L28 10L20 16L28 22L18.5 19.5L16 30L13.5 19.5L4 22L12 16L4 10L13.5 12.5L16 2Z" stroke="var(--accent-gold)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+        <div class="doodle doodle-girl-float doodle-hero-float-2" aria-hidden="true">
+            <img src="images/doodle-girl.png" alt="" loading="lazy">
         </div>
-        <div class="doodle doodle-arrow doodle-hero-3" aria-hidden="true">
-            <svg width="80" height="40" viewBox="0 0 80 40" fill="none">
-                <path d="M5 30C20 30 30 10 50 15C70 20 65 35 75 10" stroke="var(--burgundy)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-dasharray="4 4"/>
-                <path d="M70 8L76 10L72 16" stroke="var(--burgundy)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+        <!-- Decorative hand-drawn curve -->
+        <div class="doodle-accent doodle-curve-hero" aria-hidden="true">
+            <svg width="100" height="50" viewBox="0 0 100 50" fill="none">
+                <path d="M5 40C25 10 50 45 75 20C85 10 95 25 98 15" stroke="var(--burgundy)" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.5"/>
             </svg>
         </div>
 
         <div class="container hero-container">
             <div class="hero-content fade-in">
-                <p class="hero-tagline handwritten">Global Vision, Local Action ✦</p>
+                <p class="hero-tagline handwritten">Global Vision, Local Action</p>
                 <h1 class="hero-heading">
                     Together We Can Change
                     <span class="hero-highlight">
@@ -81,33 +79,17 @@
                     </span>
                 </h1>
                 <p class="hero-description">
-                    We don't ask for much, just help us with what you can — Be it Money, Skill or Your Time. She Can Foundation is dedicated to empowering women and creating a more equitable society.
+                    We don't ask for much, just help us with what you can. Be it money, skill, or your time. She Can Foundation is dedicated to empowering women and creating a more equitable society.
                 </p>
                 <div class="hero-buttons">
                     <a href="#cta" class="btn btn-primary">Join Us</a>
-                    <a href="#cta" class="btn btn-secondary">Donate ♡</a>
+                    <a href="#donate" class="btn btn-secondary">Donate</a>
                 </div>
             </div>
             <div class="hero-image-wrapper slide-up">
                 <img src="images/hero.png" alt="She Can Foundation volunteers distributing sanitary pads to women in a community" class="hero-image">
                 <div class="hero-image-accent" aria-hidden="true"></div>
             </div>
-        </div>
-
-        <!-- Doodle: tiny smiling girl -->
-        <div class="doodle doodle-girl doodle-hero-4" aria-hidden="true">
-            <svg width="48" height="56" viewBox="0 0 48 56" fill="none">
-                <circle cx="24" cy="16" r="10" stroke="var(--burgundy)" stroke-width="1.5" fill="none"/>
-                <path d="M16 14C18 8 30 8 32 14" stroke="var(--burgundy)" stroke-width="1.2" fill="none" stroke-linecap="round"/>
-                <circle cx="20" cy="16" r="1.2" fill="var(--burgundy)"/>
-                <circle cx="28" cy="16" r="1.2" fill="var(--burgundy)"/>
-                <path d="M21 20C22 22 26 22 27 20" stroke="var(--burgundy)" stroke-width="1.2" fill="none" stroke-linecap="round"/>
-                <path d="M24 26L24 40" stroke="var(--burgundy)" stroke-width="1.5" stroke-linecap="round"/>
-                <path d="M24 40L16 52" stroke="var(--burgundy)" stroke-width="1.5" stroke-linecap="round"/>
-                <path d="M24 40L32 52" stroke="var(--burgundy)" stroke-width="1.5" stroke-linecap="round"/>
-                <path d="M24 32L14 38" stroke="var(--burgundy)" stroke-width="1.5" stroke-linecap="round"/>
-                <path d="M24 32L34 38" stroke="var(--burgundy)" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
         </div>
     </section>
 
@@ -121,14 +103,14 @@
                 <img src="images/impact.png" alt="A woman receiving essential supplies from She Can Foundation volunteers" class="impact-image">
             </div>
             <div class="impact-content slide-up">
-                <p class="section-label handwritten">Our Impact ✦</p>
+                <p class="section-label handwritten">Our Impact</p>
                 <div class="impact-stat">
                     <span class="impact-number counter" data-target="120000">0</span>
                     <span class="impact-plus">+</span>
                 </div>
                 <h2 class="impact-heading">Girls Across India</h2>
                 <p class="impact-description">
-                    Empowered with free sanitary pads, awareness workshops, and dignity kits — because her period shouldn't end her education.
+                    Empowered with free sanitary pads, awareness workshops, and dignity kits. Because her period shouldn't end her education.
                 </p>
                 <div class="impact-cards">
                     <div class="impact-card fade-in" data-delay="100">
@@ -168,33 +150,31 @@
     <!-- ABOUT SECTION                               -->
     <!-- ═══════════════════════════════════════════ -->
     <section id="about" class="about-section">
-        <!-- Doodle accents -->
-        <div class="doodle doodle-star doodle-about-1" aria-hidden="true">
-            <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-                <path d="M16 2L18.5 12.5L28 10L20 16L28 22L18.5 19.5L16 30L13.5 19.5L4 22L12 16L4 10L13.5 12.5L16 2Z" stroke="var(--burgundy-light)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+        <!-- Floating girl doodle -->
+        <div class="doodle doodle-girl-float doodle-about-float" aria-hidden="true">
+            <img src="images/doodle-girl.png" alt="" loading="lazy">
         </div>
 
         <div class="container about-container">
             <div class="about-content fade-in">
-                <p class="section-label handwritten">Who We Are ✦</p>
+                <p class="section-label handwritten">Who We Are</p>
                 <h2 class="section-heading">How It <span class="text-burgundy">Started</span></h2>
                 <p class="about-text">
-                    She Can Foundation was founded by a group of individuals who shared a common vision — creating a world where every woman has the opportunity to thrive and succeed. Born from a desire to make a real difference, we recognized the countless barriers preventing women from reaching their full potential.
+                    She Can Foundation was founded by a group of individuals who shared a common vision of creating a world where every woman has the opportunity to thrive and succeed. The idea for the organization was born out of a desire to make a real difference in the lives of women in communities across the globe.
                 </p>
                 <p class="about-text">
-                    With shared passion and determination to create positive change, we set out to break down those barriers and provide women with the resources and support they need. And so, She Can Foundation was born.
+                    We recognized that there are countless barriers that prevent women from reaching their full potential, and we wanted to create an organization that could help break down those barriers and provide women with the resources and support they need to succeed.
                 </p>
                 <div class="about-divider"></div>
                 <h3 class="about-subheading">What is <span class="handwritten">She Can?</span></h3>
                 <p class="about-text">
-                    A non-profit organization registered under the Indian Society Act, 1860, dedicated to empowering women and creating a more equitable society. We provide support, resources, and training to women in communities across the globe — because every woman deserves the opportunity to thrive, regardless of her background.
+                    She Can Foundation is a non-profit organization dedicated to empowering women and creating a more equitable society. We provide support, resources, and training to women in communities across the globe, and we raise awareness of women's issues through advocacy campaigns and initiatives. We believe that every woman deserves the opportunity to thrive and succeed, regardless of her background or circumstances.
                 </p>
             </div>
             <div class="about-image-wrapper slide-up">
                 <img src="images/about.png" alt="She Can Foundation team working with community women" class="about-image">
                 <div class="about-image-badge handwritten">
-                    Making a<br>difference ♡
+                    Making a<br>difference
                 </div>
             </div>
         </div>
@@ -205,9 +185,14 @@
     <!-- MISSION / VALUES SECTION                    -->
     <!-- ═══════════════════════════════════════════ -->
     <section id="mission" class="mission-section">
+        <!-- Floating girl doodle -->
+        <div class="doodle doodle-girl-float doodle-mission-float" aria-hidden="true">
+            <img src="images/doodle-girl.png" alt="" loading="lazy">
+        </div>
+
         <div class="container">
             <div class="section-header text-center fade-in">
-                <p class="section-label handwritten">What We Stand For ✦</p>
+                <p class="section-label handwritten">What We Stand For</p>
                 <h2 class="section-heading">Our <span class="text-burgundy">Mission</span></h2>
                 <p class="section-subtitle">Empowering women through education, community support, and sustainable change.</p>
             </div>
@@ -238,8 +223,8 @@
                     <h3>Empowerment</h3>
                     <p>Providing resources, mentorship, and support systems that build confidence and independence in every woman we serve.</p>
                     <div class="mission-card-doodle" aria-hidden="true">
-                        <svg width="24" height="24" viewBox="0 0 32 32" fill="none">
-                            <path d="M16 2L18.5 12.5L28 10L20 16L28 22L18.5 19.5L16 30L13.5 19.5L4 22L12 16L4 10L13.5 12.5L16 2Z" stroke="var(--burgundy-light)" stroke-width="1" fill="none" stroke-linecap="round"/>
+                        <svg width="30" height="15" viewBox="0 0 30 15" fill="none">
+                            <path d="M2 12C8 4 15 12 22 6C26 3 28 8 29 5" stroke="var(--burgundy-light)" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.6"/>
                         </svg>
                     </div>
                 </div>
@@ -266,12 +251,12 @@
 
 
     <!-- ═══════════════════════════════════════════ -->
-    <!-- IMPACT MOMENTS CAROUSEL                     -->
+    <!-- IMPACT MOMENTS CAROUSEL (3 images only)     -->
     <!-- ═══════════════════════════════════════════ -->
     <section id="carousel" class="carousel-section">
         <div class="container">
             <div class="section-header text-center fade-in">
-                <p class="section-label handwritten">Moments That Matter ✦</p>
+                <p class="section-label handwritten">Moments That Matter</p>
                 <h2 class="section-heading">Impact <span class="text-burgundy">Moments</span></h2>
                 <p class="section-subtitle">Real stories. Real change. Real smiles.</p>
             </div>
@@ -303,22 +288,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="carousel-slide">
-                        <div class="carousel-card">
-                            <img src="images/carousel-4.png" alt="Empowering women through education and support" class="carousel-image">
-                            <div class="carousel-caption">
-                                <p class="carousel-caption-text">Empowering futures — every girl deserves a chance to thrive</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-slide">
-                        <div class="carousel-card">
-                            <img src="images/donate.png" alt="Children smiling during She Can Foundation's donation drive" class="carousel-image">
-                            <div class="carousel-caption">
-                                <p class="carousel-caption-text">Smiles of hope — your donations make this possible</p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
             <button class="carousel-btn carousel-prev" id="carouselPrev" aria-label="Previous slide">
@@ -337,23 +306,34 @@
 
 
     <!-- ═══════════════════════════════════════════ -->
+    <!-- STORY IMAGE SECTION (relocated carousel-4)  -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="story" class="story-image-section">
+        <div class="container story-container">
+            <div class="story-image-wrapper slide-up">
+                <img src="images/carousel-4.png" alt="Empowering women through education and support" class="story-image">
+            </div>
+            <div class="story-content fade-in">
+                <p class="section-label handwritten">Every Girl Deserves a Chance</p>
+                <h2 class="section-heading">Empowering <span class="text-burgundy">Futures</span></h2>
+                <p>
+                    Every girl deserves a chance to thrive. Through our programs, we provide the tools, education, and support that help young women build confidence and step into their potential.
+                </p>
+                <p>
+                    Your support transforms lives. Join us in building a future where no girl is left behind.
+                </p>
+                <a href="#cta" class="btn btn-primary">Get Involved</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════ -->
     <!-- FOUNDER MESSAGE SECTION                     -->
     <!-- ═══════════════════════════════════════════ -->
     <section id="founder" class="founder-section">
-        <!-- Doodle accents -->
-        <div class="doodle doodle-star doodle-founder-1" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 32 32" fill="none">
-                <path d="M16 2L18.5 12.5L28 10L20 16L28 22L18.5 19.5L16 30L13.5 19.5L4 22L12 16L4 10L13.5 12.5L16 2Z" stroke="var(--burgundy-light)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-            </svg>
-        </div>
-        <div class="doodle doodle-star doodle-founder-2" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 32 32" fill="none">
-                <path d="M16 2L18.5 12.5L28 10L20 16L28 22L18.5 19.5L16 30L13.5 19.5L4 22L12 16L4 10L13.5 12.5L16 2Z" stroke="var(--accent-gold)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-            </svg>
-        </div>
-
         <div class="container founder-container fade-in">
-            <div class="founder-quote-mark" aria-hidden="true">"</div>
+            <div class="founder-quote-mark" aria-hidden="true">&ldquo;</div>
             <blockquote class="founder-quote">
                 Together, we can break down barriers and empower women. At She Can Foundation, we believe that if we all do our part, there is no challenge too great to overcome. Join us in our mission to create a world where every woman has the opportunity to thrive and succeed.
             </blockquote>
@@ -372,7 +352,7 @@
     <section id="transparency" class="transparency-section">
         <div class="container transparency-container">
             <div class="transparency-content fade-in">
-                <p class="section-label handwritten">Trust & Transparency ✦</p>
+                <p class="section-label handwritten">Trust & Transparency</p>
                 <h2 class="section-heading">Built on <span class="text-burgundy">Trust</span></h2>
                 <p class="transparency-text">
                     She Can Foundation is a registered non-governmental organization under the Indian Society Act, 1860. We believe in complete transparency and accountability in everything we do.
@@ -418,30 +398,71 @@
 
 
     <!-- ═══════════════════════════════════════════ -->
+    <!-- DONATE SECTION                              -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="donate" class="donate-section">
+        <!-- Floating girl doodle -->
+        <div class="doodle doodle-girl-float doodle-donate-float" aria-hidden="true">
+            <img src="images/doodle-girl.png" alt="" loading="lazy">
+        </div>
+
+        <div class="container donate-container">
+            <div class="donate-content fade-in">
+                <p class="section-label handwritten">Make a Difference</p>
+                <h2 class="donate-heading">Her Period Shouldn't End <span class="text-burgundy">Her Education.</span></h2>
+                <p class="donate-supporting">
+                    For many girls, lack of menstrual hygiene support becomes a barrier to education, confidence, and dignity. Your contribution helps us break this cycle, one girl at a time.
+                </p>
+                <div class="donate-details">
+                    <div class="donate-detail-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--burgundy)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                        <span>president@shecanfoundation.org</span>
+                    </div>
+                    <div class="donate-detail-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--burgundy)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        </svg>
+                        <span>+91-8283841830</span>
+                    </div>
+                </div>
+            </div>
+            <div class="donate-qr-wrapper slide-up">
+                <div class="donate-qr-card">
+                    <div class="donate-qr-badge handwritten" aria-hidden="true">Scan to Donate</div>
+                    <img src="images/qr_code.jpeg" alt="Scan this QR code to donate to She Can Foundation" class="donate-qr-image">
+                    <div class="donate-qr-message">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--burgundy)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                        </svg>
+                        <p>Even a small contribution offers a <strong>sanitary pad to a girl child</strong>, giving her the freedom to learn, grow, and dream without shame.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════ -->
     <!-- FINAL CTA SECTION                           -->
     <!-- ═══════════════════════════════════════════ -->
     <section id="cta" class="cta-section">
-        <!-- Doodle accents -->
-        <div class="doodle doodle-star doodle-cta-1" aria-hidden="true">
-            <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-                <path d="M16 2L18.5 12.5L28 10L20 16L28 22L18.5 19.5L16 30L13.5 19.5L4 22L12 16L4 10L13.5 12.5L16 2Z" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-            </svg>
-        </div>
-        <div class="doodle doodle-star doodle-cta-2" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 32 32" fill="none">
-                <path d="M16 2L18.5 12.5L28 10L20 16L28 22L18.5 19.5L16 30L13.5 19.5L4 22L12 16L4 10L13.5 12.5L16 2Z" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-            </svg>
+        <!-- Floating girl doodle -->
+        <div class="doodle doodle-girl-float doodle-cta-float" aria-hidden="true" style="opacity: 0.08;">
+            <img src="images/doodle-girl.png" alt="" loading="lazy" style="filter: brightness(10);">
         </div>
 
         <div class="container cta-container fade-in">
-            <p class="cta-tagline handwritten">Every action matters ✦</p>
+            <p class="cta-tagline handwritten">Every action matters</p>
             <h2 class="cta-heading">Be Part of the <span class="cta-highlight">Change</span></h2>
             <p class="cta-text">
-                Join our team and make a difference in the lives of women in need. Whether you are passionate about education, health, or providing support during times of crisis — there is a place for you.
+                Join our team and make a difference in the lives of women in need. At She Can Foundation, we are committed to creating positive change and empowering women in communities across the globe. Whether you are passionate about education, health, or providing support during times of crisis, there is a place for you on our team.
             </p>
             <div class="cta-buttons">
                 <a href="mailto:president@shecanfoundation.org?subject=I%20want%20to%20volunteer" class="btn btn-white">Volunteer With Us</a>
-                <a href="mailto:president@shecanfoundation.org?subject=I%20want%20to%20donate" class="btn btn-white-outline">Donate Now ♡</a>
+                <a href="mailto:president@shecanfoundation.org?subject=I%20want%20to%20donate" class="btn btn-white-outline">Donate Now</a>
             </div>
         </div>
     </section>
@@ -492,7 +513,7 @@
                 <h4 class="footer-heading">Get Involved</h4>
                 <ul class="footer-links">
                     <li><a href="#cta">Volunteer</a></li>
-                    <li><a href="#cta">Donate</a></li>
+                    <li><a href="#donate">Donate</a></li>
                     <li><a href="#founder">Our Founder</a></li>
                     <li><a href="#transparency">Transparency</a></li>
                 </ul>
@@ -517,7 +538,7 @@
         <div class="footer-bottom">
             <div class="container footer-bottom-content">
                 <p>&copy; 2025 She Can Foundation. All rights reserved.</p>
-                <p class="handwritten footer-bottom-tagline">Together, she can. ♡</p>
+                <p class="handwritten footer-bottom-tagline">Together, she can.</p>
             </div>
         </div>
     </footer>
