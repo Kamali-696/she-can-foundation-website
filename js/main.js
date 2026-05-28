@@ -1,25 +1,32 @@
 /* ========================================================================
-   She Can Foundation — Main JavaScript
-   Vanilla JS · ES6+ · No frameworks
+   She Can Foundation — Main JavaScript v2
+   Multi-page · Vanilla JS · ES6+ · No frameworks
    ======================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
 
   /* --------------------------------------------------------------------
      1. NAVBAR SCROLL EFFECT
-     - Adds 'scrolled' class when page is scrolled past 50px
-     - Throttled via requestAnimationFrame for performance
+     - On the home page: hero-transparent → scrolled when page scrolled past
+       the hero stats strip.
+     - On all other pages: navbar is .solid from the start (no class toggle).
   -------------------------------------------------------------------- */
   (() => {
-    const navbar = document.getElementById('navbar');
+    const navbar  = document.getElementById('navbar');
     if (!navbar) return;
+
+    const isHeroPage = navbar.classList.contains('hero-transparent');
+    if (!isHeroPage) return; // solid pages need no scroll listener
 
     let ticking = false;
 
     const handleNavbarScroll = () => {
-      if (window.scrollY > 50) {
+      // Switch from transparent to solid once user scrolls past ~80px
+      if (window.scrollY > 80) {
+        navbar.classList.remove('hero-transparent');
         navbar.classList.add('scrolled');
       } else {
+        navbar.classList.add('hero-transparent');
         navbar.classList.remove('scrolled');
       }
       ticking = false;
@@ -52,6 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const shouldOpen = typeof open === 'boolean' ? open : !navLinks.classList.contains('active');
       hamburger.classList.toggle('active', shouldOpen);
       navLinks.classList.toggle('active', shouldOpen);
+      hamburger.setAttribute('aria-expanded', String(shouldOpen));
       document.body.style.overflow = shouldOpen ? 'hidden' : '';
     };
 
@@ -84,8 +92,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* --------------------------------------------------------------------
-     3. SMOOTH SCROLLING
-     - Intercepts all anchor links starting with '#'
+     3. SMOOTH SCROLLING (for same-page anchor links only)
+     - Only applies to links like href="#section"
      - Offsets for fixed navbar height (80px)
   -------------------------------------------------------------------- */
   (() => {
@@ -94,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', (e) => {
         const targetId = anchor.getAttribute('href');
-        if (targetId === '#') return; // skip bare '#' links
+        if (targetId === '#') return;
 
         const target = document.querySelector(targetId);
         if (!target) return;
@@ -102,11 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
 
         const targetPosition = target.getBoundingClientRect().top + window.scrollY - NAVBAR_OFFSET;
-
-        window.scrollTo({
-          top: targetPosition,
-          behavior: 'smooth'
-        });
+        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
       });
     });
   })();
@@ -154,14 +158,16 @@ document.addEventListener('DOMContentLoaded', () => {
      - Infinite loop wrapping
   -------------------------------------------------------------------- */
   (() => {
-    const carousel      = document.getElementById('carousel');
-    const track         = carousel?.querySelector('.carousel-track');
-    const slides        = carousel?.querySelectorAll('.carousel-slide');
-    const prevBtn       = carousel?.querySelector('.carousel-prev');
-    const nextBtn       = carousel?.querySelector('.carousel-next');
-    const dotsContainer = carousel?.querySelector('.carousel-dots');
+    const carouselSection = document.getElementById('carousel');
+    if (!carouselSection) return;
 
-    if (!carousel || !track || !slides?.length) return;
+    const track         = carouselSection.querySelector('.carousel-track');
+    const slides        = carouselSection.querySelectorAll('.carousel-slide');
+    const prevBtn       = carouselSection.querySelector('.carousel-prev');
+    const nextBtn       = carouselSection.querySelector('.carousel-next');
+    const dotsContainer = carouselSection.querySelector('.carousel-dots');
+
+    if (!track || !slides?.length) return;
 
     let currentIndex   = 0;
     let autoPlayTimer  = null;
@@ -172,7 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const totalSlides = slides.length;
 
-    /* — Build dot indicators (clear any hardcoded ones first) — */
+    /* — Build dot indicators — */
     const dots = [];
     if (dotsContainer) {
       dotsContainer.innerHTML = '';
@@ -187,7 +193,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    /* — Helpers — */
     const calcSlideWidth = () => {
       slideWidth = slides[0].offsetWidth;
     };
@@ -217,11 +222,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextSlide = () => goToSlide(currentIndex + 1);
     const prevSlide = () => goToSlide(currentIndex - 1);
 
-    /* — Button listeners — */
     if (prevBtn) prevBtn.addEventListener('click', prevSlide);
     if (nextBtn) nextBtn.addEventListener('click', nextSlide);
 
-    /* — Touch / Swipe support — */
+    /* — Touch / Swipe — */
     track.addEventListener('touchstart', (e) => {
       touchStartX = e.changedTouches[0].clientX;
       isDragging  = true;
@@ -236,14 +240,12 @@ document.addEventListener('DOMContentLoaded', () => {
     track.addEventListener('touchend', () => {
       if (!isDragging) return;
       isDragging = false;
-      const swipeDistance = touchStartX - touchEndX;
+      const swipeDistance  = touchStartX - touchEndX;
       const SWIPE_THRESHOLD = 50;
 
-      if (swipeDistance > SWIPE_THRESHOLD) {
-        nextSlide();
-      } else if (swipeDistance < -SWIPE_THRESHOLD) {
-        prevSlide();
-      }
+      if (swipeDistance > SWIPE_THRESHOLD)       nextSlide();
+      else if (swipeDistance < -SWIPE_THRESHOLD) prevSlide();
+
       startAutoPlay();
     });
 
@@ -260,10 +262,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     };
 
-    carousel.addEventListener('mouseenter', pauseAutoPlay);
-    carousel.addEventListener('mouseleave', startAutoPlay);
+    carouselSection.addEventListener('mouseenter', pauseAutoPlay);
+    carouselSection.addEventListener('mouseleave', startAutoPlay);
 
-    /* — Resize handling — */
+    /* — Resize — */
     let resizeTimer;
     window.addEventListener('resize', () => {
       clearTimeout(resizeTimer);
@@ -273,14 +275,14 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 150);
     });
 
-    /* — Keyboard support — */
-    carousel.setAttribute('tabindex', '0');
-    carousel.addEventListener('keydown', (e) => {
+    /* — Keyboard — */
+    carouselSection.setAttribute('tabindex', '0');
+    carouselSection.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowLeft')  prevSlide();
       if (e.key === 'ArrowRight') nextSlide();
     });
 
-    /* — Initialise — */
+    /* — Init — */
     calcSlideWidth();
     moveTrack();
     startAutoPlay();
@@ -291,24 +293,17 @@ document.addEventListener('DOMContentLoaded', () => {
      6. COUNTER ANIMATION
      - Animates numbers from 0 → data-target
      - Uses requestAnimationFrame for smoothness (~2s duration)
-     - Formats in Indian numbering (e.g. 1,20,000+)
+     - Formats in Indian numbering (e.g. 1,20,000)
      - Triggered once via IntersectionObserver
   -------------------------------------------------------------------- */
   (() => {
     const counters = document.querySelectorAll('.counter[data-target]');
     if (!counters.length) return;
 
-    /**
-     * Format a number using Indian numbering system.
-     * 1000      → 1,000
-     * 120000    → 1,20,000
-     * 10000000  → 1,00,00,000
-     */
     const formatIndian = (num) => {
       const str   = Math.floor(num).toString();
       let   last3 = str.slice(-3);
       let   rest  = str.slice(0, -3);
-
       if (rest.length > 0) {
         rest = rest.replace(/\B(?=(\d{2})+(?!\d))/g, ',');
         return `${rest},${last3}`;
@@ -320,7 +315,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const target   = parseInt(el.dataset.target, 10);
       if (isNaN(target)) return;
 
-      const duration = 2000; // milliseconds
+      const duration = 2000;
       const suffix   = el.dataset.suffix || '';
       let   start    = null;
 
@@ -328,10 +323,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!start) start = timestamp;
         const elapsed  = timestamp - start;
         const progress = Math.min(elapsed / duration, 1);
-
-        // Ease-out cubic for a natural deceleration feel
-        const eased = 1 - Math.pow(1 - progress, 3);
-        const current = Math.floor(eased * target);
+        const eased    = 1 - Math.pow(1 - progress, 3);
+        const current  = Math.floor(eased * target);
 
         el.textContent = formatIndian(current) + suffix;
 
@@ -359,39 +352,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* --------------------------------------------------------------------
-     7. ACTIVE NAVIGATION HIGHLIGHT
-     - Watches each section and highlights the matching nav link
+     7. PARALLAX-LITE EFFECT (hero section background)
+     - Subtle translateY on scroll via backgroundPositionY
+     - Desktop only via matchMedia
   -------------------------------------------------------------------- */
   (() => {
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
-    if (!sections.length || !navLinks.length) return;
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const id = entry.target.getAttribute('id');
-          navLinks.forEach(link => {
-            link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
-          });
-        }
-      });
-    }, {
-      rootMargin: '-80px 0px -50% 0px',
-      threshold: 0
-    });
-
-    sections.forEach(section => observer.observe(section));
-  })();
-
-
-  /* --------------------------------------------------------------------
-     8. PARALLAX-LITE EFFECT (hero background)
-     - Subtle translateY on scroll (factor 0.3)
-     - Desktop only — disabled on mobile via matchMedia
-  -------------------------------------------------------------------- */
-  (() => {
-    const hero = document.getElementById('hero');
+    const hero = document.querySelector('.hero-section');
     if (!hero) return;
 
     const desktopQuery = window.matchMedia('(min-width: 769px)');
@@ -402,8 +368,8 @@ document.addEventListener('DOMContentLoaded', () => {
         hero.style.backgroundPositionY = '';
         return;
       }
-      const offset = window.scrollY * 0.3;
-      hero.style.backgroundPositionY = `${offset}px`;
+      const offset = window.scrollY * 0.25;
+      hero.style.backgroundPositionY = `calc(top + ${offset}px)`;
       ticking = false;
     };
 
@@ -414,7 +380,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     };
 
-    // Listen only on desktop; toggle listener when breakpoint changes
     const handleMediaChange = (e) => {
       if (e.matches) {
         window.addEventListener('scroll', onScroll, { passive: true });
@@ -426,7 +391,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     desktopQuery.addEventListener('change', handleMediaChange);
-    handleMediaChange(desktopQuery); // initial check
+    handleMediaChange(desktopQuery);
   })();
 
 });
